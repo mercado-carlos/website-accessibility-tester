@@ -19,6 +19,29 @@ const testAccessibility = async (e) => {
     }
 };
 
+const addIssuesToDOM = (issues) => {
+    const issuesOutput = document.querySelector('#issues');
+
+    issuesOutput.innerHTML = '';
+
+    if (issues.lenght === 0) {
+        issuesOutput.innerHTML = '<h4>No Issues Found</h4>';
+    } else {
+        issues.forEach((issue) => {
+            const output = `
+                <div class=""card mb-5>
+                    <div class="card-body">
+                        <h4>${issue.message}</h4>
+                        <p class="bg-light p-3 my-3">
+                            ${escapeHTML(issue.context)}
+                        </p>
+                    </div>
+                </div>
+            `;
+        });
+    }
+};
+
 const setLoading = (isLoading = true) => {
     const loader = document.querySelector('.loader');
 
