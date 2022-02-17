@@ -35,9 +35,15 @@ const addIssuesToDOM = (issues) => {
                         <p class="bg-light p-3 my-3">
                             ${escapeHTML(issue.context)}
                         </p>
+
+                        <p class="bg-secondary text-light p-2">
+                            CODE: ${issue.code}
+                        </p>
                     </div>
                 </div>
             `;
+
+            issuesOutput.innerHTML += output;
         });
     }
 };
